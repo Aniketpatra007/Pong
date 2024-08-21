@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BallBounce : MonoBehaviour
 {
+    public GameObject HitSFX;
+
     public BallMovement ballMovement;
     public ScoreManager scoreManager;
     private void Bounce(Collision2D collision)
@@ -34,12 +36,15 @@ public class BallBounce : MonoBehaviour
             scoreManager.Player1Goal();
             ballMovement.player1Start = false;
             StartCoroutine(ballMovement.Launch());
+            ballMovement.SetStartSpeed(5f);
         }
         else if (collision.gameObject.name == "Left Border")
         {
             scoreManager.Player2Goal();
             ballMovement.player1Start = true;
             StartCoroutine(ballMovement.Launch());
+            ballMovement.SetStartSpeed(5f);
         }
+        Instantiate(HitSFX);
     }
 }

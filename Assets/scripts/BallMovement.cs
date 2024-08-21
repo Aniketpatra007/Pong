@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    public float startSpeed;
-    public float extraSpeed;
-    public float maxExtraSpeed;
+    private float startSpeed = 5f;
+    private float extraSpeed = 0.5f;
+    private float maxExtraSpeed = 15f;
     public bool player1Start = true;
 
     private int hitCounter = 0;
@@ -22,6 +22,10 @@ public class BallMovement : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         transform.position = new Vector2(0, 0);
     }
+    public void SetStartSpeed(float speed)
+    {
+        startSpeed = speed;
+    }
 
     public IEnumerator Launch()
     {
@@ -29,10 +33,13 @@ public class BallMovement : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (player1Start)
         {
+            SetStartSpeed(5);
             MoveBall(new Vector2(-1, 0));
+            
         }
         else
         {
+            SetStartSpeed(5);
             MoveBall(new Vector2(1, 0));
         }
     }
