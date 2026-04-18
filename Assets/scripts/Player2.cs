@@ -23,6 +23,6 @@ public class Player2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = racketDirection * racketSpeed;
+        rb.linearVelocity = racketDirection * racketSpeed;
     }
 }

@@ -19,7 +19,7 @@ public class BallMovement : MonoBehaviour
 
     private void RestartBall()
     {
-        rb.velocity = new Vector2(0, 0);
+        rb.linearVelocity = new Vector2(0, 0);
         transform.position = new Vector2(0, 0);
     }
     public void SetStartSpeed(float speed)
@@ -49,7 +49,7 @@ public class BallMovement : MonoBehaviour
 
         float ballSpeed = startSpeed + hitCounter * extraSpeed;
 
-        rb.velocity = direction * ballSpeed;    
+        rb.linearVelocity = direction * ballSpeed;    
     }
 
     public void IncreaseHitCounter()
